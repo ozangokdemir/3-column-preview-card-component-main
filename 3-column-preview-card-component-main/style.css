@@ -1,134 +1,183 @@
-:root{
-	--sedans-color: #E28525;
-	--suvs-color: #016972;
-	--luxury-color: #00403F;
+:root {
+	--bright-orange: hsl(31, 77%, 52%);
+	--dark-cyan: hsl(184, 100%, 22%);
+	--very-dark-cyan: hsl(179, 100%, 13%);
+	--transparent-white: hsla(0, 0%, 100%, 0.75);
+	--very-light-grey: hsl(0, 0%, 95%);
+	
+	--body-copy-font-size: 15px;
 }
 
-body{
+/*GLOBAL*/
+
+html, body {
+	height: 100%;
+}
+
+body {
 	margin: 0;
 	padding: 0;
-	min-height: 100%;
-	background: #F2F2F2;
+	
+	background: var(--very-light-grey);
 	color: white;
+	
+	font-size: var(--body-copy-font-size);
 }
 
-footer{
-	font-family: 'Lexend Deca', sans-serif;
-	display: inline;
-	font-size: .8em;
+.l-attribution {
 	color: grey;
 	text-align: center;
+	
+	font-family: 'Lexend Deca', sans-serif;
+	font-size: .8em;
 }
 
 /*CENTRAGE*/
-#bloc_page{
+
+.l-bloc-page {
 	display: flex;
 	justify-content: center;
-	margin-top: 20vh;
+	height: 100%;
 }
 
-#bloc_page .frame{
+.l-frame {
 	position: relative;
 	box-sizing: border-box;
-	width: 20vw;
-	height: 60vh;
-	min-height: 20vh;
-	padding: 5vh 3vw 5vh 3vw;
-	outline: 2px black solid;
+	top: 50%;
+	transform: translate(0, -50%);
+	width: 21em;
+	height: 35em;
+	padding: 4em 3.6em 4em 3.3em;
 }
 
-#bloc_page p{
-	box-sizing: border-box;
-	font-family: 'Lexend Deca', sans-serif;
-	font-size: .8rem;
-	line-height: 1.2rem;
-	color: hsla(0, 0%, 100%, 0.75);
-	outline: 1px black solid;
-}
 
-.frame h2{
-	text-transform: uppercase;
+/*//MODULES//*/
+
+/*FRAMES*/
+
+.l-frame .subtitle {
+	color: var(--very-light-grey);
+	
 	font-family: 'Big Shoulders Display', cursive;
-	font-size: 2rem;
-	color: hsl(0, 0%, 95%);
+	font-weight: 700;
+	font-size: 2.7em;
+	text-transform: uppercase;
 }
 
-.sedans{
-	background: var(--sedans-color);
-	border-radius: 10px 0 0 10px;
+.l-frame p {
+	box-sizing: border-box;
+	
+	color: var(--transparent-white);
+	
+	font-family: 'Lexend Deca', sans-serif;
+	font-weight: 400;
+	line-height: 1.8em;
 }
 
-.suvs{
-	background: var(--suvs-color);
+.l-frame-sedans {
+	background: var(--bright-orange);
+	
+	border-radius: 8px 0 0 8px;
 }
 
-.luxury{
-	background: var(--luxury-color);
+.l-frame-suvs {
+	background: var(--dark-cyan);
+}
+
+.l-frame-luxury {
+	background: var(--very-dark-cyan);
+	
 	border-radius: 0 10px 10px 0;
 }
 
-.frame a{
+/*BUTTONS*/
+
+.btn-learn-more {
+	position: absolute;
+	bottom: 3em;
+	
 	background: white;
 	color: inherit;
-	padding: .8em 1.6em .8em 1.6em;
+	
 	border: solid white 2px;
-	border-radius : 20px;
-	text-decoration: none;
+	border-radius : 30px;
+	padding: .8em 2em .8em 2em;
+	
 	font-family: 'Lexend Deca', sans-serif;
-	font-size: .8em;
-	position: absolute;
-	bottom: 2em;
+	text-decoration: none;
 }
 
-.frame a:hover{
-	cursor: pointer;
+.l-frame-sedans .btn-learn-more {
+	color: var(--bright-orange);
+}
+
+.l-frame-suvs .btn-learn-more {
+	color: var(--dark-cyan);
+}
+
+.l-frame-luxury .btn-learn-more {
+	color: var(--very-dark-cyan);
+}
+
+.btn-learn-more:hover {
 	background: transparent;
 	color: white;
+	
+	cursor: pointer;
 }
 
-.sedans a{
-	color: var(--sedans-color);
-}
+/*FOOTER LINKS*/
 
-.suvs a{
-	color: var(--suvs-color);
-}
-
-.luxury a{
-	color: var(--luxury-color);
-}
-
-footer a{
+.l-attribution a {
 	display: inline-flex;
 	flex-direction: column;
 }
 
-footer a:link{
+.l-attribution a:link,  .l-attribution a:visited{
 	color: inherit;
 }
 
-footer a:visited{
-	color: inherit;
-}
-
-footer a:hover{
+.l-attribution a:hover {
 	font-weight: bold;
 }
 
-footer a::before{
+.l-attribution a::before {
 	content: attr(data-text);
-	height: 0;
 	visibility: hidden;
+	
+	height: 0;
+	
 	font-weight: bold;
 }
 
 
 /*RESPONSIVE*/
-@media (max-width:710px ) { 
+@media (max-width: 760px ) { 
 
-    
-
-
-  }
+	.l-bloc-page {
+		height: auto;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	.l-frame{
+		display: block;
+		top: 19em;
+		width: 21.8em;
+		height: 30em;
+		padding: 3em 3em 3em 3.3em;
+	}
+		
+	.l-frame .subtitle {font-size: 2.6em}
+	
+	.l-frame-sedans{border-radius: 10px 10px 0 0}
+	
+	.l-frame-luxury{border-radius: 0 0 10px 10px}
+	
+	.l-attribution {
+		position: relative;
+		top: 5em;
+	}
+}
   
   
